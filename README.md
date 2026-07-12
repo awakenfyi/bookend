@@ -79,10 +79,19 @@ Don't like any of them? `.bookend.json` is three lines; change the template.
 Anything in a `scratch/`, `tmp/`, or `_wip/` folder. The path is the disclaimer — doodles get to
 stay doodles. (Edit the list in `.bookend.json`.)
 
-## Works on
+## Works on everything, honestly
 
-`.html` and `.md`. Both accept the same HTML-comment colophon, so one tool covers your pages and
-your notes. Add extensions in the config.
+- **Text it can read** (`.html`, `.md`, `.txt`) → renamed *and* stamped with a colophon whose
+  title comes from the file's own content.
+- **Files with real names** (`.pdf`, `.pptx`, `.docx`, `.xlsx`, `.png`, `.jpg`, `.zip`, …) →
+  renamed to the same grammar; the **INDEX** is their memory, since you can't embed a comment
+  in a PNG.
+- **Files it can't read a name from** (`IMG_4823.HEIC`, `Screenshot 2026….png`, `download(2).svg`)
+  → **left alone**, and reported. Bookend will not invent a topic it can't justify. Fabricating a
+  name is the same sin as fabricating lineage — it won't do either.
+
+Point it at a real Downloads folder and it'll tell you exactly how many files it can name, how
+many it'll rename, and how many need a human title. Then you decide.
 
 ---
 
