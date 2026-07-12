@@ -27,11 +27,14 @@ try:
     assert os.listdir(os.path.join(d, "scratch")) == ["doodle.html"], "scratch was touched!"
     assert run("index", d).returncode == 0, "index failed on clean lineage"
 
-    # the gate: a fake supersedes must make index fail
-    bad = [f for f in os.listdir(d) if f.endswith(".md")][0]
-    p = os.path.join(d, bad); t = open(p).read()
-    open(p, "w").write(t.replace("supersedes: ", "supersedes: ghost__doc__2026-01-01__v01.md"))
-    assert run("index", d).returncode != 0, "index should FAIL on fabricated lineage (the gate)"
+    # the gate: a fabricated supersedes must make index fail.
+    # constructed directly (no round-trip through apply) so the test is deterministic across OSes.
+    open(os.path.join(d, "gate__note__2026-01-01__v01.md"), "w").write(
+        "# Gate\n\n<!-- colophon\ntitle: Gate\nkind: note\nversion: v01\n"
+        "date: 2026-01-01\nsupersedes: ghost__doc__2000-01-01__v01.md\n"
+        "related: \nsource: \nstatus: draft\n-->\n")
+    r = run("index", d)
+    assert r.returncode != 0, f"index should FAIL on fabricated lineage (the gate). got rc=0; stdout={r.stdout!r}"
     print("PASS — formats, dry-run scan, apply, version-series collision, scratch-skip, index, and the lineage gate all hold.")
 finally:
     shutil.rmtree(d)
