@@ -1,0 +1,37 @@
+{
+  "format": "topic-first",
+  "scratch_dirs": [
+    "scratch",
+    "tmp",
+    "_wip",
+    ".git",
+    "node_modules",
+    "dist",
+    "build",
+    "vendor"
+  ],
+  "stamp_ext": [
+    ".html",
+    ".md",
+    ".txt"
+  ],
+  "rename_ext": [
+    ".pdf",
+    ".pptx",
+    ".docx",
+    ".xlsx",
+    ".csv",
+    ".zip",
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".heic",
+    ".dng",
+    ".gif",
+    ".svg",
+    ".mp4",
+    ".mov",
+    ".key",
+    ".numbers"
+  ]
+}
